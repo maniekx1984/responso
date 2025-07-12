@@ -2,9 +2,10 @@
 
 namespace App\Baselinker\Service;
 
+use App\Baselinker\Exception\BaselinkerApiException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-readonly class BaselinkerClient
+readonly class BaselinkerClient implements BaselinkerClientInterface
 {
     public function __construct(
         private HttpClientInterface $client,
@@ -30,7 +31,7 @@ readonly class BaselinkerClient
 
             return $response->toArray();
         } catch (\Exception $e) {
-            throw new \RuntimeException(sprintf('Baselinker API request failed: %s', $e->getMessage()));
+            throw new BaselinkerApiException(sprintf('Baselinker API request failed: %s', $e->getMessage()));
         }
     }
 }

@@ -40,7 +40,7 @@ when@test:
                 channels: ["!event"]
             baselinker:
                 type: stream
-                path: '%kernel.logs_dir%/baselinker.log'
+                path: '%kernel.logs_dir%/baselinker_test.log'
                 level: info
                 channels: ["baselinker"]
             nested:

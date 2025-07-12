@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $token: '%env(string:BASELINKER_API_KEY)%'
+
+    App\Tests\Behat\:
+        resource: '../tests/Behat/*'
+        
+    App\Baselinker\Service\BaselinkerClient:
+        class: App\Tests\Mock\MockBaselinkerClient
+        public: true
+    
+    App\Tests\Behat\BaselinkerContext:
+        arguments:
+            $logDir: '%kernel.logs_dir%'

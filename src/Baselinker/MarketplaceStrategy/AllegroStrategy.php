@@ -2,11 +2,11 @@
 
 namespace App\Baselinker\MarketplaceStrategy;
 
-use App\Baselinker\Service\BaselinkerClient;
+use App\Baselinker\Service\BaselinkerClientInterface;
 
 readonly class AllegroStrategy implements MarketplaceStrategyInterface
 {
-    public function __construct(private BaselinkerClient $client)
+    public function __construct(private BaselinkerClientInterface $client)
     {
     }
 

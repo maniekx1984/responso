@@ -1,0 +1,15 @@
+default:
+    suites:
+        default:
+            contexts:
+                - App\Tests\Behat\BaselinkerContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                environment: test
+            bootstrap: tests/bootstrap.php
+        Behat\MinkExtension:
+            sessions:
+                symfony:
+                    symfony: ~
