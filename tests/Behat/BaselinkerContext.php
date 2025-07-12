@@ -3,9 +3,9 @@
 namespace App\Tests\Behat;
 
 use Behat\Behat\Context\Context;
+use Behat\Mink\Session;
 use Behat\Step\Then;
 use Behat\Step\When;
-use Behat\Mink\Session;
 use Symfony\Component\Routing\RouterInterface;
 
 class BaselinkerContext implements Context
@@ -51,12 +51,12 @@ class BaselinkerContext implements Context
     {
         $logFile = sprintf('%s/baselinker_test.log', $this->logDir);
         if (!file_exists($logFile)) {
-            throw new \Exception('Log file does not exist: ' . $logFile);
+            throw new \Exception('Log file does not exist: '.$logFile);
         }
 
         $logContent = file_get_contents($logFile);
         if (empty($logContent)) {
-            throw new \Exception('Log file is empty: ' . $logFile);
+            throw new \Exception('Log file is empty: '.$logFile);
         }
 
         if (!str_contains($logContent, 'order_id')) {

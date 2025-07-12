@@ -5,8 +5,8 @@ namespace App\Baselinker\Service;
 use App\Baselinker\Exception\BaselinkerApiException;
 use Monolog\Attribute\WithMonologChannel;
 use Psr\Log\LoggerInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[WithMonologChannel('baselinker')]
 readonly class BaselinkerClient implements BaselinkerClientInterface
@@ -23,6 +23,7 @@ readonly class BaselinkerClient implements BaselinkerClientInterface
     {
         $stopwatchName = 'Baselinker.getOrders';
         $this->stopwatch->start($stopwatchName);
+
         return $this->request('getOrders', $stopwatchName, $params);
     }
 
